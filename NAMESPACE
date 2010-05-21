@@ -1,0 +1,7 @@
+
+export(serve)
+export(endConnection)
+export(stopServer)
+
+useDynLib(triggr,getCID,startTrigger)
+
