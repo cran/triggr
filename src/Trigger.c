@@ -51,9 +51,7 @@ void* trigger(void *arg){
  ev_run(lp,0);
 
  //Clean up; we don't need any locks since main thread is waiting for a join now
- Rprintf("Cleaning up...\n");
  while(GlobalQueue.headCon!=NULL) killConnection(GlobalQueue.headCon);
  ev_loop_destroy(lp);
- Rprintf("Trigger thread terminates NOW...\n");
  return(NULL);
 }

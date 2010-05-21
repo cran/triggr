@@ -1,7 +1,7 @@
 Package: triggr
 Type: Package
 Title: Fast, simple RPC controller for R
-Version: 0.1
+Version: 0.2
 Date: 2010-05-21
 Depends: R (>= 2.0.0)
 Author: Miron B. Kursa
@@ -14,6 +14,7 @@ Description: Triggr launches a server that gathers RNRN-terminated text
 URL: https://github.com/mbq/Triggr
 License: file LICENCE | GPL (>= 2)
 LazyLoad: yes
-Packaged: 2011-04-05 16:03:14 UTC; mbkursa
+Packaged: 2011-04-12 07:47:19 UTC; mbq
 Repository: CRAN
-Date/Publication: 2011-04-05 17:24:57
+Date/Publication: 2011-04-12 09:19:15
+OS_type: unix

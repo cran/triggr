@@ -75,7 +75,6 @@ SEXP startTrigger(SEXP port,SEXP wrappedCall,SEXP envir){
  active=1; count=0;
  port=INTEGER(port)[0];
  makeGlobalQueue(); 
- Rprintf("Initiating triggr...\n"); 
  pthread_t thread;
  int rc;
  
@@ -125,7 +124,7 @@ SEXP startTrigger(SEXP port,SEXP wrappedCall,SEXP envir){
    
    //Execute processing code on the GlobalQueue.headWork's contents
    SEXP response;
-   char *responseC=NULL;
+   const char *responseC=NULL;
    SEXP call;
    PROTECT(call=lang2(wrappedCall,arg));
    PROTECT(response=eval(call,envir));
@@ -179,19 +178,3 @@ SEXP startTrigger(SEXP port,SEXP wrappedCall,SEXP envir){
  Rprintf("Clean exit of triggr. There was %d executed jobs.\n",processedJobs);
  return(R_NilValue);
 }
-
-
-//Some debug
-/*void DumpWorkBuffs(Connection *c){
- WorkBuffer *iwb;
- Rprintf("Work buffs: ");
- if(c->headWork) for(iwb=c->headWork;iwb!=NULL;iwb=iwb->nxt) Rprintf("|%d|",iwb);
- Rprintf("\n");
-}*/
-
-/*void DumpOutBuffs(Connection *c,int j){
- OutBuffer *iob;
- Rprintf("Out buffs %d:",j);
- if(c->headOut) for(iob=c->headOut;iob!=NULL;iob=iob->nxt) Rprintf(":%d:",iob);
- Rprintf("\n");
-}*/
